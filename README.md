@@ -20,8 +20,7 @@ PDFanywhere is an AI-powered study material tool designed to help you work effic
   - Hyper UI
 
 - **Backend**: 
-  - Drizzle ORM
-  - Neon DB
+  - Convex
 
 - **Authentication**: 
   - Clerk
