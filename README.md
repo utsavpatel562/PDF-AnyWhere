@@ -8,7 +8,7 @@ PDFanywhere is an AI-powered study material tool designed to help you work effic
 - **User -Friendly Interface**: Built with Next.js and React.js, providing a seamless user experience.
 - **Responsive Design**: Tailwind CSS ensures that PDFanywhere looks great on any device.
 - **Custom Components**: Utilizes Shadcn and Hyper UI for a modern and intuitive design.
-- **Database Management**: Drizzle ORM with Neon DB for efficient data handling and storage.
+- **Database Management**: Convex for efficient data handling and storage.
 
 ## Tech Stack
 
