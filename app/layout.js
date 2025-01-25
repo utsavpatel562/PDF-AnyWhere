@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import {Outfit} from "next/font/google";
 
@@ -10,6 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <>
+    <ClerkProvider>
     <html lang="en">
       <body
         className={outfit.className}
@@ -17,5 +20,7 @@ export default function RootLayout({ children }) {
         {children}
       </body>
     </html>
+    </ClerkProvider>
+    </>
   );
 }
