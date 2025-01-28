@@ -5,10 +5,10 @@ function DashboardLayout({children}) {
   return (
     <>
     <div>
-        <div className='w-64 h-screen fixed'>
+        <div className='md:w-64 h-screen fixed'>
             <SideBar/>
         </div>
-        <div className='ml-64'>
+        <div className='md:ml-64'>
             {children}
         </div>
     </div>
