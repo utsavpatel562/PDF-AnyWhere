@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { Button } from '../../../components/ui/button'
-import { Layout, Shield } from 'lucide-react'
+import { File, Layout, Settings, Shield } from 'lucide-react'
 
 function SideBar() {
   return (
@@ -14,9 +14,17 @@ function SideBar() {
               <Layout/>
               <h2>Workspace</h2>
             </div>
-            <div className='flex gap-2 items-center p-3 mt-5 hover:bg-slate-100 rounded-lg cursor-pointer'>
+            <div className='flex gap-2 items-center p-3 mt-1 hover:bg-slate-100 rounded-lg cursor-pointer'>
               <Shield/>
               <h2>Upgrade</h2>
+            </div>
+            <div className='flex gap-2 items-center p-3 mt-1 hover:bg-slate-100 rounded-lg cursor-pointer'>
+              <Settings/>
+              <h2>Settings</h2>
+            </div>
+            <div className='flex gap-2 items-center p-3 mt-1 hover:bg-slate-100 rounded-lg cursor-pointer'>
+              <File/>
+              <h2>Project Docs</h2>
             </div>
         </div>
     </div>
