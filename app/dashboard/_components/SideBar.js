@@ -27,8 +27,8 @@ function SideBar() {
               <h2>Project Docs</h2>
             </div>
         </div>
-        <div>
-        <Progress value={90} />
+        <div className='absolute bottom-10 w-[80%]'>
+        <Progress value={35} />
         </div>
     </div>
     </>
