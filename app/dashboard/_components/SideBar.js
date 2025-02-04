@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import React from 'react'
 import { Button } from '../../../components/ui/button'
+import { Progress } from '../../../components/ui/progress'
 import { File, Layout, Settings, Shield } from 'lucide-react'
 
 function SideBar() {
@@ -26,6 +26,9 @@ function SideBar() {
               <File/>
               <h2>Project Docs</h2>
             </div>
+        </div>
+        <div>
+        <Progress value={90} />
         </div>
     </div>
     </>
