@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from '../../../components/ui/button'
 import { Progress } from '../../../components/ui/progress'
 import { File, Layout, Settings, Shield } from 'lucide-react'
+import UploadPdfDialog from './UploadPdfDialog'
 
 function SideBar() {
   return (
@@ -10,6 +11,7 @@ function SideBar() {
       <h1 className='text-2xl font-medium text-center mt-3'><b className='text-red-600'>PDF</b> <b className='text-blue-700'>AnyWhere</b></h1>
         <div className='mt-10'>
             <Button className="hover:bg-zinc-800 p-5 w-full">+ Upload PDF</Button>
+            <UploadPdfDialog/>
             <div className='flex gap-2 items-center p-3 mt-5 hover:bg-slate-100 rounded-lg cursor-pointer'>
               <Layout/>
               <h2>Workspace</h2>
