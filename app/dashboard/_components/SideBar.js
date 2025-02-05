@@ -27,8 +27,10 @@ function SideBar() {
               <h2>Project Docs</h2>
             </div>
         </div>
-        <div className='absolute bottom-10 w-[80%]'>
+        <div className='absolute bottom-24 w-[80%]'>
         <Progress value={35} />
+        <p className='text-sm mt-1'>2 out of 5 PDF Upload</p>
+        <p className='text-xs text-gray-500 mt-2'>Upgrade to Upload more PDF</p>
         </div>
     </div>
     </>
