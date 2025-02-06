@@ -7,7 +7,8 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "../../../components/ui/dialog"
-  
+
+  import { Input } from "../../../components/ui/input"
 
 function UploadPdfDialog({children}) {
   return (
@@ -20,10 +21,14 @@ function UploadPdfDialog({children}) {
     <DialogHeader>
       <DialogTitle>Upload PDF File</DialogTitle>
       <DialogDescription asChild>
-      <div className='mt-5'>
-        <div className='flex gap-2 p-3 rounded-md border'>
+      <div className=''>
+        <div className='flex mt-5 gap-2 p-3 rounded-md border'>
           <h2>Select a file to upload</h2>
           <input type="file"/>
+        </div>
+        <div className='mt-2'>
+          <label>File Name *</label>
+          <Input placeholder="your file name" className="mt-1"/>
         </div>
       </div>
       </DialogDescription>
