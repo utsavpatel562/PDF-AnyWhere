@@ -18,10 +18,14 @@ function UploadPdfDialog({children}) {
   </DialogTrigger>
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Are you absolutely sure?</DialogTitle>
-      <DialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
+      <DialogTitle>Upload PDF File</DialogTitle>
+      <DialogDescription asChild>
+      <div className='mt-5'>
+        <div className='flex gap-2 p-3 rounded-md border'>
+          <h2>Select a file to upload</h2>
+          <input type="file"/>
+        </div>
+      </div>
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
