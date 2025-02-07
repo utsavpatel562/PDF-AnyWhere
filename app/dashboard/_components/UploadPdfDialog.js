@@ -1,8 +1,10 @@
 import React from 'react'
 import {
     Dialog,
+    DialogClose,
     DialogContent,
     DialogDescription,
+    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -31,12 +33,17 @@ function UploadPdfDialog({children}) {
           <label>File Name *</label>
           <Input placeholder="your file name" className="mt-1"/>
         </div>
-        <div>
-          <Button>Upload</Button>
-        </div>
       </div>
       </DialogDescription>
     </DialogHeader>
+    <DialogFooter className="sm:justify-end">
+          <DialogClose asChild>
+            <Button type="button" variant="secondary">
+              Close
+            </Button>
+          </DialogClose>
+          <Button>Upload</Button>
+        </DialogFooter>
   </DialogContent>
 </Dialog>
     </>
