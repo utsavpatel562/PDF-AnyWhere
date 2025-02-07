@@ -12,7 +12,8 @@ import {
 
   import { Input } from "../../../components/ui/input"
 import { Button } from '../../../components/ui/button'
-
+import { MdOutlineFileUpload } from "react-icons/md";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 function UploadPdfDialog({children}) {
   return (
     <>
@@ -27,7 +28,7 @@ function UploadPdfDialog({children}) {
       <div className=''>
       <h2 className='mt-5'>Select a file to upload</h2>
         <div className='gap-2 p-3 rounded-md border'>
-          <input type="file"/>
+          <input type="file" accept='application/pdf'/>
         </div>
         <div className='mt-2'>
           <label>File Name *</label>
@@ -38,11 +39,11 @@ function UploadPdfDialog({children}) {
     </DialogHeader>
     <DialogFooter className="sm:justify-end">
           <DialogClose asChild>
-            <Button type="button" variant="secondary">
+            <Button type="button" className="flex items-center bg-neutral-200 text-zinc-500 hover:bg-neutral-200">
               Close
             </Button>
           </DialogClose>
-          <Button>Upload</Button>
+          <Button className="flex justify-center">Upload<MdOutlineFileUpload/></Button>
         </DialogFooter>
   </DialogContent>
 </Dialog>
