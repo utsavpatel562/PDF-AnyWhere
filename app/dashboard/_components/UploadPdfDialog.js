@@ -33,10 +33,11 @@ function UploadPdfDialog({children}) {
     const result = await fetch(postUrl, {
       method: "POST",
       headers: { "Content-Type": file?.type },
-      body: selectedImage,
+      body: file,
     });
     const { storageId } = await result.json();
-
+    console.log('StorageID', storageId);
+    setLoading(false);
   }
 
   return (
