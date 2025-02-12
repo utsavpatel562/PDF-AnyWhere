@@ -17,6 +17,7 @@ import { TbLoader3 } from "react-icons/tb";
 import { useMutation } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
 import { useUser } from '@clerk/nextjs'
+import uuid4 from "uuid4";
 function UploadPdfDialog({children}) {
 
   // logic to handle upload file
@@ -25,7 +26,8 @@ function UploadPdfDialog({children}) {
   const {user} = useUser();
   const [file, setFile] = useState();
   const [loading, setLoading] = useState(false);
-  const OnFlieSelect = (event) => {
+  const [fileName, setFileName] = useState();
+  const OnFileSelect = (event) => {
     setFile(event.target.files[0]);
   }
   const OnUpload = async() => {
@@ -45,10 +47,10 @@ function UploadPdfDialog({children}) {
     const resp = await addFileEntry({
       fileId: fileId,
       storageId: storageId,
-      fileName: '',
+      fileName: fileName?? 'Untitled File',
       createdBy:user?.primaryEmailAddress?.emailAddress,
     })
-
+    console.log(resp);
     setLoading(false);
   }
 
@@ -65,11 +67,11 @@ function UploadPdfDialog({children}) {
       <div className=''>
       <h2 className='mt-5'>Select a file to upload</h2>
         <div className='gap-2 p-3 rounded-md border'>
-          <input type="file" accept='application/pdf' onChange={(event)=> OnFlieSelect(event)}/>
+          <input type="file" accept='application/pdf' onChange={(event)=> OnFileSelect(event)}/>
         </div>
         <div className='mt-2'>
           <label>File Name *</label>
-          <Input placeholder="your file name" className="mt-1"/>
+          <Input placeholder="your file name" className="mt-1" onChange={(e)=> setFileName(e.target.value)}/>
         </div>
       </div>
       </DialogDescription>
