@@ -16,10 +16,13 @@ import { Button } from '../../../components/ui/button'
 import { TbLoader3 } from "react-icons/tb";
 import { useMutation } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
+import { useUser } from '@clerk/nextjs'
 function UploadPdfDialog({children}) {
 
   // logic to handle upload file
   const generateUploadUrl = useMutation(api.fileStorage.generateUploadUrl)
+  const addFileEntry = useMutation(api.fileStorage.AddFileEntryToDB)
+  const {user} = useUser();
   const [file, setFile] = useState();
   const [loading, setLoading] = useState(false);
   const OnFlieSelect = (event) => {
@@ -37,6 +40,15 @@ function UploadPdfDialog({children}) {
     });
     const { storageId } = await result.json();
     console.log('StorageID', storageId);
+
+    const fileId = uuid4();
+    const resp = await addFileEntry({
+      fileId: fileId,
+      storageId: storageId,
+      fileName: '',
+      createdBy:user?.primaryEmailAddress?.emailAddress,
+    })
+
     setLoading(false);
   }
 
