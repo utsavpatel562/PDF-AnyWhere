@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Dialog,
     DialogClose,
@@ -14,13 +14,19 @@ import {
   import { Input } from "../../../components/ui/input"
 import { Button } from '../../../components/ui/button'
 import { MdOutlineFileUpload } from "react-icons/md";
+import { TbLoader3 } from "react-icons/tb";
 import { useMutation } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
 function UploadPdfDialog({children}) {
 
   // logic to handle upload file
   const generateUploadUrl = useMutation(api.fileStorage.generateUploadUrl)
+  const [file, setFile] = useState();
+  const loading, setLoading = useState(false);
   const OnFlieSelect = (event) => {
+    setFile(event.target.files[0]);
+  }
+  const OnUpload = () => {
 
   }
 
@@ -52,7 +58,7 @@ function UploadPdfDialog({children}) {
               Close
             </Button>
           </DialogClose>
-          <Button className="flex justify-center">Upload<MdOutlineFileUpload/></Button>
+          <Button className="flex justify-center" onClick={OnUpload}>{loading ? <TbLoader3 className='animate-spin'/>:'Upload'}<MdOutlineFileUpload/></Button>
         </DialogFooter>
   </DialogContent>
 </Dialog>
