@@ -1,4 +1,4 @@
-# PDFanywhere
+# PDF-AnyWhere
 
 PDFanywhere is an AI-powered study material tool designed to help you work efficiently with PDF documents. Whether you're a student, researcher, or professional, PDFanywhere streamlines your workflow by providing intelligent features that enhance your productivity.
 
