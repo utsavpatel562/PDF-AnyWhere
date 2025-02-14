@@ -23,6 +23,7 @@ function UploadPdfDialog({children}) {
   // logic to handle upload file
   const generateUploadUrl = useMutation(api.fileStorage.generateUploadUrl)
   const addFileEntry = useMutation(api.fileStorage.AddFileEntryToDB)
+  const getFileUrl=useMutation(api.fileStorage.getFileUrl)
   const {user} = useUser();
   const [file, setFile] = useState();
   const [loading, setLoading] = useState(false);
