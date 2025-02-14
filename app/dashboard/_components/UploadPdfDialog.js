@@ -44,10 +44,12 @@ function UploadPdfDialog({children}) {
     console.log('StorageID', storageId);
 
     const fileId = uuid4();
+    const fileUrl = await getFileUrl({storageId: storageId})
     const resp = await addFileEntry({
       fileId: fileId,
       storageId: storageId,
       fileName: fileName?? 'Untitled File',
+      fileUrl: fileUrl,
       createdBy:user?.primaryEmailAddress?.emailAddress,
     })
     console.log(resp);
