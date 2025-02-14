@@ -1,6 +1,6 @@
-# PDFanywhere
+# PDF-AnyWhere
 
-PDFanywhere is an AI-powered study material tool designed to help you work efficiently with PDF documents. Whether you're a student, researcher, or professional, PDFanywhere streamlines your workflow by providing intelligent features that enhance your productivity.
+PDF-AnyWhere is an AI-powered study material tool designed to help you work efficiently with PDF documents. Whether you're a student, researcher, or professional, PDF-AnyWhere streamlines your workflow by providing intelligent features that enhance your productivity.
 
 ## Features
 
@@ -27,7 +27,7 @@ PDFanywhere is an AI-powered study material tool designed to help you work effic
 
 ## Getting Started
 
-To get started with PDFanywhere, follow these steps:
+To get started with PDF-AnyWhere, follow these steps:
 
 ### Prerequisites
 
@@ -41,12 +41,12 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/PDFanywhere.git
+   git clone https://github.com/yourusername/PDF-AnyWhere.git
 
 2. Navigate to the project directory::
 
    ```bash
-   cd PDFanywhere
+   cd PDF-AnyWhere
 
 3. Install the dependencies:
 
@@ -58,10 +58,10 @@ Make sure you have the following installed:
    ```bash
    npm run dev
 
-5. Open your browser and go to http://localhost:3000 to see PDFanywhere in action!
+5. Open your browser and go to http://localhost:3000 to see PDF-AnyWhere in action!
 
 ### Contributing
-We welcome contributions to PDFanywhere! If you'd like to contribute, please follow these steps:
+We welcome contributions to PDF-AnyWhere! If you'd like to contribute, please follow these steps:
 
 - Fork the repository.
 - Create a new branch (git checkout -b feature/YourFeature).
@@ -69,4 +69,4 @@ We welcome contributions to PDFanywhere! If you'd like to contribute, please fol
 - Push to the branch (git push origin feature/YourFeature).
 - Open a pull request.
 
-Thank you for checking out PDFanywhere! We hope it helps you work more efficiently with your study materials. Happy studying!
+Thank you for checking out PDF-AnyWhere! We hope it helps you work more efficiently with your study materials. Happy studying!
