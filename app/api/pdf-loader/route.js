@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { WebPDFLoader } from "@langchain/community/document_loaders/web/pdf";
+import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
 const pdfUrl="https://adjoining-camel-191.convex.cloud/api/storage/6c5ae850-0a1d-49d3-9ea1-663d891e757a"
 export async function GET(req) {
@@ -15,6 +16,12 @@ export async function GET(req) {
     })
 
     // step 2 - Split the text into small chunks
+    const splitter = new RecursiveCharacterTextSplitter({
+        chunkSize: 100,
+        chunkOverlap: 20,
+    })
 
-    return NextResponse.json({result: pdfTextContent})
+    const output = await splitter.createDocuments([pdfTextContent]);
+
+    return NextResponse.json({result: output})
 }
