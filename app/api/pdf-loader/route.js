@@ -9,5 +9,12 @@ export async function GET(req) {
     const loader = new WebPDFLoader(data);
     const docs = await loader.load();
 
-    return NextResponse.json({result: docs})
+    let pdfTextContent='';
+    docs.forEach(doc=> {
+        pdfTextContent=pdfTextContent+doc.pageContent
+    })
+
+    // step 2 - Split the text into small chunks
+
+    return NextResponse.json({result: pdfTextContent})
 }
