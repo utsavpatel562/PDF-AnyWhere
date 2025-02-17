@@ -22,6 +22,10 @@ export async function GET(req) {
     })
 
     const output = await splitter.createDocuments([pdfTextContent]);
+    let splitterList=[];
+    output.forEach(doc=> {
+        splitterList.push(doc.pageContent);
+    })
 
-    return NextResponse.json({result: output})
+    return NextResponse.json({result: splitterList})
 }

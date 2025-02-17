@@ -18,6 +18,7 @@ import { useMutation } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
 import { useUser } from '@clerk/nextjs'
 import uuid4 from "uuid4";
+import axios from 'axios'
 function UploadPdfDialog({children}) {
 
   // logic to handle upload file
@@ -33,9 +34,10 @@ function UploadPdfDialog({children}) {
   }
   const OnUpload = async() => {
     setLoading(true);
-    // Get short-lived upload URL
-    const postUrl = await generateUploadUrl();
+    // 1: Get short-lived upload URL
+    /*const postUrl = await generateUploadUrl();
 
+    // 2: POST the file to the URL
     const result = await fetch(postUrl, {
       method: "POST",
       headers: { "Content-Type": file?.type },
@@ -53,7 +55,11 @@ function UploadPdfDialog({children}) {
       fileUrl: fileUrl,
       createdBy:user?.primaryEmailAddress?.emailAddress,
     })
-    console.log(resp);
+    console.log(resp); */
+
+    // API Call to Fetch PDF Process Data
+    const ApiResp = await axios.get('/api/pdf-loader');
+    console.log(ApiResp.data.result);
     setLoading(false);
   }
 
