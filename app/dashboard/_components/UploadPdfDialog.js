@@ -14,7 +14,7 @@ import {
   import { Input } from "../../../components/ui/input"
 import { Button } from '../../../components/ui/button'
 import { TbLoader3 } from "react-icons/tb";
-import { useMutation } from 'convex/react';
+import { useAction, useMutation } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
 import { useUser } from '@clerk/nextjs'
 import uuid4 from "uuid4";
@@ -25,6 +25,7 @@ function UploadPdfDialog({children}) {
   const generateUploadUrl = useMutation(api.fileStorage.generateUploadUrl)
   const addFileEntry = useMutation(api.fileStorage.AddFileEntryToDB)
   const getFileUrl=useMutation(api.fileStorage.getFileUrl)
+  const embeddDocument = useAction(api.myAction.ingest);
   const {user} = useUser();
   const [file, setFile] = useState();
   const [loading, setLoading] = useState(false);
@@ -60,6 +61,7 @@ function UploadPdfDialog({children}) {
     // API Call to Fetch PDF Process Data
     const ApiResp = await axios.get('/api/pdf-loader');
     console.log(ApiResp.data.result);
+    embeddDocument({});
     setLoading(false);
   }
 
