@@ -12,6 +12,7 @@ export const ingest = action({
       ["Hello world", "Bye bye", "What's this?"],
       [{ prop: 2 }, { prop: 1 }, { prop: 3 }],
       new GoogleGenerativeAIEmbeddings({
+        apiKey:process.env.GOOGLE_AI_STUDIO,
         model: "text-embedding-004",
         taskType: TaskType.RETRIEVAL_DOCUMENT,
         title: "Document title",
