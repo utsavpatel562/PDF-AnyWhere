@@ -12,7 +12,7 @@ dotenv.config();
 export const ingest = action({
   args: {},
   handler: async (ctx) => {
-    const apiKey = process.env.GOOGLE_API_KEY;
+    const apiKey = "YOUR_GOOGLE_STUDIO_API_KEY";
 
     if (!apiKey) {
       throw new Error("GOOGLE_API_KEY environment variable is not defined");
