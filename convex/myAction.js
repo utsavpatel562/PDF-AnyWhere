@@ -15,9 +15,10 @@ console.log("Environment Variables:", process.env);
 
 export const ingest = action({
   args: {
-    slitText: v.any(),
+    splitText: v.any(),
+    fileId: v.string(),
   },
-  handler: async (ctx) => {
+  handler: async (ctx, args) => {
     // anyone using this code, place your own api key here
     const apiKey = "AIzaSyBtn9VgREivgECAjNo8lKZTSCcNLGaQFx4";
 
@@ -28,8 +29,8 @@ export const ingest = action({
     console.log("GOOGLE_API_KEY:", apiKey); // Debug log
 
     await ConvexVectorStore.fromTexts(
-      ["Hello world", "Bye bye", "What's this?"],
-      "123",
+      args.splitText,
+      args.fileId,
       new GoogleGenerativeAIEmbeddings({
         apiKey: apiKey,
         model: "text-embedding-004",
