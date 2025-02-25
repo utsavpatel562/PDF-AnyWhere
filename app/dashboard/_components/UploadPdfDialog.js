@@ -61,7 +61,11 @@ function UploadPdfDialog({children}) {
     // API Call to Fetch PDF Process Data
     const ApiResp = await axios.get('/api/pdf-loader');
     console.log(ApiResp.data.result);
-    embeddDocument({});
+    const embeddResult = embeddDocument({
+      splitTextL: ApiResp.data.result,
+      fileId: "123",
+    });
+    console.log(embeddResult);
     setLoading(false);
   }
 

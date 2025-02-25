@@ -39,5 +39,6 @@ export const ingest = action({
       }),
       { ctx }
     );
+    return "Completed";
   },
 });
