@@ -5,14 +5,21 @@ import { action } from "./_generated/server.js";
 import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 import { TaskType } from "@google/generative-ai";
 import dotenv from 'dotenv';
+import { v } from "convex/values";
 
 // Load environment variables from .env file
 dotenv.config();
 
+// Debug log to check if the environment variable is loaded
+console.log("Environment Variables:", process.env);
+
 export const ingest = action({
-  args: {},
+  args: {
+    slitText: v.any(),
+  },
   handler: async (ctx) => {
-    const apiKey = process.env.GOOGLE_API_KEY;
+    // anyone using this code, place your own api key here
+    const apiKey = "AIzaSyBtn9VgREivgECAjNo8lKZTSCcNLGaQFx4";
 
     if (!apiKey) {
       throw new Error("GOOGLE_API_KEY environment variable is not defined");
@@ -22,7 +29,7 @@ export const ingest = action({
 
     await ConvexVectorStore.fromTexts(
       ["Hello world", "Bye bye", "What's this?"],
-      [{ prop: 2 }, { prop: 1 }, { prop: 3 }],
+      "123",
       new GoogleGenerativeAIEmbeddings({
         apiKey: apiKey,
         model: "text-embedding-004",
