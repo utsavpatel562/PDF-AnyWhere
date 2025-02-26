@@ -36,7 +36,7 @@ function UploadPdfDialog({children}) {
   const OnUpload = async() => {
     setLoading(true);
     // 1: Get short-lived upload URL
-    /*const postUrl = await generateUploadUrl();
+    const postUrl = await generateUploadUrl();
 
     // 2: POST the file to the URL
     const result = await fetch(postUrl, {
@@ -56,10 +56,11 @@ function UploadPdfDialog({children}) {
       fileUrl: fileUrl,
       createdBy:user?.primaryEmailAddress?.emailAddress,
     })
-    console.log(resp); */
+      
+    // console.log(resp); 
 
     // API Call to Fetch PDF Process Data
-    const ApiResp = await axios.get('/api/pdf-loader');
+    const ApiResp = await axios.get('/api/pdf-loader?pdfUrl='+fileUrl);
     console.log(ApiResp.data.result);
     const embeddResult = embeddDocument({
       splitText: ApiResp.data.result,
