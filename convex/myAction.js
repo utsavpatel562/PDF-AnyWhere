@@ -20,7 +20,7 @@ export const ingest = action({
   },
   handler: async (ctx, args) => {
     // anyone using this code, place your own api key here
-    const apiKey = "YOUR API KEY HERE";
+    const apiKey = "YOUR_GOOGLE_STUDIO_API_KEY_HERE"; // YOUR_GOOGLE_STUDIO_API_KEY_HERE
 
     if (!apiKey) {
       throw new Error("GOOGLE_API_KEY environment variable is not defined");
