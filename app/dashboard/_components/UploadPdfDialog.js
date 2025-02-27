@@ -94,12 +94,15 @@ function UploadPdfDialog({ children }) {
       console.error("Upload failed:", error);
     } finally {
       setLoading(false);
+      setOpen(false);
     }
   };
 
   return (
-    <Dialog>
-      <DialogTrigger asChild><Button onClick={()=>setOpen(true)}>+ Upload PDF File</Button></DialogTrigger>
+    <Dialog open={open}>
+      <DialogTrigger asChild>
+        <Button className="w-full p-3" onClick={()=>setOpen(true)}>+ Upload PDF File</Button>
+     </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Upload PDF File</DialogTitle>

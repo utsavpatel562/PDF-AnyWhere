@@ -26,7 +26,7 @@ export const ingest = action({
       throw new Error("GOOGLE_API_KEY environment variable is not defined");
     }
 
-    console.log("GOOGLE_API_KEY:", apiKey); // Debug log
+    console.log("GOOGLE STUDIO API WORKING"); // Debug log
 
     await ConvexVectorStore.fromTexts(
       args.splitText,
