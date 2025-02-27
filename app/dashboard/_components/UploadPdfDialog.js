@@ -34,6 +34,7 @@ function UploadPdfDialog({ children }) {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [fileName, setFileName] = useState("");
+  const [open, setOpen] = useState(false);
 
   // Handle File Selection
   const OnFileSelect = (event) => {
@@ -98,7 +99,7 @@ function UploadPdfDialog({ children }) {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogTrigger asChild><Button onClick={()=>setOpen(true)}>+ Upload PDF File</Button></DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Upload PDF File</DialogTitle>
