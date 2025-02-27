@@ -101,7 +101,7 @@ function UploadPdfDialog({ children }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
   <DialogTrigger asChild>
-    <Button className="w-full p-3" onClick={() => setOpen(true)}>
+    <Button className="w-full h-10" onClick={() => setOpen(true)}>
       + Upload PDF File
     </Button>
   </DialogTrigger>
