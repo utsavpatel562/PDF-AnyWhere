@@ -99,49 +99,51 @@ function UploadPdfDialog({ children }) {
   };
 
   return (
-    <Dialog open={open}>
-      <DialogTrigger asChild>
-        <Button className="w-full p-3" onClick={()=>setOpen(true)}>+ Upload PDF File</Button>
-     </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Upload PDF File</DialogTitle>
-          <DialogDescription asChild>
-            <div>
-              <h2 className="mt-5">Select a file to upload</h2>
-              <div className="gap-2 p-3 rounded-md border">
-                <input
-                  type="file"
-                  accept="application/pdf"
-                  onChange={OnFileSelect}
-                />
-              </div>
-              <div className="mt-2">
-                <label>File Name *</label>
-                <Input
-                  placeholder="Your file name"
-                  className="mt-1"
-                  onChange={(e) => setFileName(e.target.value)}
-                />
-              </div>
-            </div>
-          </DialogDescription>
-        </DialogHeader>
-        <DialogFooter className="sm:justify-end">
-          <DialogClose asChild>
-            <Button
-              type="button"
-              className="flex items-center bg-neutral-200 text-zinc-500 hover:bg-neutral-200"
-            >
-              Close
-            </Button>
-          </DialogClose>
-          <Button className="flex justify-center" onClick={OnUpload} disabled={loading}>
-            {loading ? <TbLoader3 className="animate-spin" /> : "Upload"}
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
+  <DialogTrigger asChild>
+    <Button className="w-full p-3" onClick={() => setOpen(true)}>
+      + Upload PDF File
+    </Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Upload PDF File</DialogTitle>
+      <DialogDescription asChild>
+        <div>
+          <h2 className="mt-5">Select a file to upload</h2>
+          <div className="gap-2 p-3 rounded-md border">
+            <input
+              type="file"
+              accept="application/pdf"
+              onChange={OnFileSelect}
+            />
+          </div>
+          <div className="mt-2">
+            <label>File Name *</label>
+            <Input
+              placeholder="Your file name"
+              className="mt-1"
+              onChange={(e) => setFileName(e.target.value)}
+            />
+          </div>
+        </div>
+      </DialogDescription>
+    </DialogHeader>
+    <DialogFooter className="sm:justify-end">
+      <Button
+        type="button"
+        className="flex items-center bg-neutral-200 text-zinc-500 hover:bg-neutral-200"
+        onClick={() => setOpen(false)} // Ensure modal closes
+      >
+        Close
+      </Button>
+      <Button className="flex justify-center" onClick={OnUpload} disabled={loading}>
+        {loading ? <TbLoader3 className="animate-spin" /> : "Upload"}
+      </Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
   );
 }
 
