@@ -6,7 +6,10 @@ import PdfViewer from './_components/PdfViewer';
 
 function Workspace() {
     const {fileId} = useParams();
-      
+    const GetFileInfo=()=> {
+        
+    }
+
     return (
     <div>
         <WorkSpaceHeader/>
