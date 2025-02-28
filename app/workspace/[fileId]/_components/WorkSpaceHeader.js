@@ -4,7 +4,7 @@ import React from 'react'
 function WorkSpaceHeader() {
   return (
     <div className='p-4 flex justify-between shadow-sm'>
-        <Image src={'/logo2.png'} alt='logo' width={240} height={100}/>
+        <Image src={'/logo2.png'} alt='logo' width={200} height={100}/>
     </div>
   )
 }
