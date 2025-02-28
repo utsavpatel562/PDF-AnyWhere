@@ -3,12 +3,14 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 import WorkSpaceHeader from './_components/WorkSpaceHeader';
 import PdfViewer from './_components/PdfViewer';
+import { api } from '../../../convex/_generated/api';
+import { useQuery } from 'convex/react';
 
 function Workspace() {
     const {fileId} = useParams();
-    const GetFileInfo=()=> {
-        
-    }
+    const GetFileRecord=useQuery(api.fileStorage.GetFileRecord, {
+        fileId:fileId
+    })
 
     return (
     <div>
