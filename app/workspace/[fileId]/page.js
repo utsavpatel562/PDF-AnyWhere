@@ -9,6 +9,14 @@ function Workspace() {
     return (
     <div>
         <WorkSpaceHeader/>
+        <div>
+            <div>
+                {/* Text Editor */}
+            </div>
+            <div>
+                {/* PDF Viewer */}
+            </div>
+        </div>
     </div>
   )
 }
