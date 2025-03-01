@@ -1,6 +1,6 @@
 "use client"
 import { useParams } from 'next/navigation'
-import React from 'react'
+import React, { useEffect } from 'react'
 import WorkSpaceHeader from './_components/WorkSpaceHeader';
 import PdfViewer from './_components/PdfViewer';
 import { api } from '../../../convex/_generated/api';
@@ -8,9 +8,13 @@ import { useQuery } from 'convex/react';
 
 function Workspace() {
     const {fileId} = useParams();
-    const GetFileRecord=useQuery(api.fileStorage.GetFileRecord, {
+    const fileInfo=useQuery(api.fileStorage.GetFileRecord, {
         fileId:fileId
     })
+
+    useEffect(()=> {
+        console.log(fileInfo);
+    },[fileInfo])
 
     return (
     <div>
@@ -21,7 +25,7 @@ function Workspace() {
             </div>
             <div>
                 {/* PDF Viewer */}
-                <PdfViewer/>
+                <PdfViewer fileUrl={fileInfo?.fileUrl}/>
             </div>
         </div>
     </div>

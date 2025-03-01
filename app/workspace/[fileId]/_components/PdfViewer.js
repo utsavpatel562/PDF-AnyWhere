@@ -1,6 +1,7 @@
 import React from 'react'
 
-function PDFViewer() {
+function PDFViewer({fileUrl}) {
+  console.log(fileUrl);
   return (
     <div>PDFViewer</div>
   )
