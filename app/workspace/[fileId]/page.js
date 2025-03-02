@@ -1,3 +1,4 @@
+// THIS HAVE TEXT-EDITOR AND PDF VIEWER
 "use client"
 import { useParams } from 'next/navigation'
 import React, { useEffect } from 'react'
