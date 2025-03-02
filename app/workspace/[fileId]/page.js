@@ -3,6 +3,7 @@ import { useParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 import WorkSpaceHeader from './_components/WorkSpaceHeader';
 import PdfViewer from './_components/PdfViewer';
+import TextEditor from './_components/TextEditor';
 import { api } from '../../../convex/_generated/api';
 import { useQuery } from 'convex/react';
 
@@ -22,6 +23,7 @@ function Workspace() {
         <div className='grid grid-cols-2 gap-5'>
             <div>
                 {/* Text Editor */}
+                <TextEditor/>
             </div>
             <div>
                 {/* PDF Viewer */}
