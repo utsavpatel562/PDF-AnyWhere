@@ -1,4 +1,4 @@
-import { Bold, Italic } from 'lucide-react';
+import { Bold, Italic, Underline } from 'lucide-react';
 import React from 'react';
 
 function EditorExentsion({ editor }) {
@@ -19,6 +19,12 @@ function EditorExentsion({ editor }) {
             className={editor.isActive('italic') ? 'text-blue-700 bg-blue-100 p-2 rounded-sm' : 'p-2'}
           >
             <Italic/>
+          </button>
+          <button
+            onClick={() => editor.chain().focus().toggleUnderline().run()}
+            className={editor.isActive('underline') ? 'text-blue-700 bg-blue-100 p-2 rounded-sm' : 'p-2'}
+          >
+            <Underline />
           </button>
         </div>
       </div>

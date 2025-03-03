@@ -3,12 +3,13 @@ import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import React from 'react'
 import EditorExentsion from './EditorExentsion'
+import Underline from '@tiptap/extension-underline'
 
 function TextEditor() {
     const editor = useEditor({
         extensions: [StarterKit, Placeholder.configure({
             placeholder: "Start Taking Your Notes Here..."
-        })],
+        }), Underline],
         content: '',
         editorProps: {
             attributes: {
