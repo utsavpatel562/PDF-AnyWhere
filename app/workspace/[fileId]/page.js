@@ -21,7 +21,7 @@ function Workspace() {
     return (
     <div>
         <WorkSpaceHeader/>
-        <div className='grid grid-cols-2 gap-5'>
+        <div className='grid grid-cols-2 gap-2'>
             <div>
                 {/* Text Editor */}
                 <TextEditor/>

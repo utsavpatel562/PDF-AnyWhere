@@ -12,32 +12,36 @@ import TextAlign from '@tiptap/extension-text-align'
 import Heading from '@tiptap/extension-heading'
 function TextEditor() {
     const editor = useEditor({
-        extensions: [StarterKit, Placeholder.configure({
-            placeholder: "Start Taking Your Notes Here..."
-        }), 
-        Underline, 
-        Highlight, 
-        Document,
-        Paragraph,
-        Text,
-        Heading,
-        TextAlign.configure({
-            types: ['heading', 'paragraph'],
+        extensions: [
+          StarterKit, // This already includes BulletList, ListItem, and ListKeymap
+          Placeholder.configure({
+            placeholder: "Start Taking Your Notes Here...",
           }),
-    ],
-        content: '',
+          Underline,
+          Highlight,
+          Document,
+          Paragraph,
+          Text,
+          Heading,
+          TextAlign.configure({
+            types: ["heading", "paragraph"],
+          }),
+        ],
+        content: "",
         editorProps: {
-            attributes: {
-                class: 'focus:outline-none h-screen p-5'
-            }
-        }
-      })
+          attributes: {
+            class: "focus:outline-none h-screen p-5",
+          },
+        },
+      });
+      
   return (
-    <div>
+    <div className='p-4 h-fit'>
         <EditorExentsion editor={editor} />
-        <div>
-            <EditorContent editor={editor} />
-        </div>
+        <div className='prose max-w-none bg-slate-100 rounded-md border border-slate-200 h-[calc(100vh-8rem)] overflow-y-auto'>
+    <EditorContent editor={editor} className='list-disc ml-5 h-full' />
+</div>
+
     </div>
   )
 }

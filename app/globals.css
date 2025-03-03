@@ -5,6 +5,31 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+/* for bullet points in editor */
+.ProseMirror ul {
+  list-style-type: disc !important; /* Forces black circle bullets */
+  padding-left: 20px; /* Ensures proper indentation */
+}
+
+.ProseMirror li {
+  margin-left: 10px;
+}
+/* for custom scrollbar  */
+/* For Webkit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 5px; /* Adjust thickness */
+  height: 8px; /* Height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #64748b; /* Change scrollbar thumb color */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e2e8f0; /* Change scrollbar track color */
+}
+
 /* Basic editor styles */
 .tiptap {
   :first-child {

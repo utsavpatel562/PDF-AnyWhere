@@ -1,12 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-function PDFViewer({fileUrl}) {
+function PDFViewer({ fileUrl }) {
   console.log(fileUrl);
   return (
-    <div>
-      <iframe src={fileUrl+"#toolbar=0"} height="90vh" width="100%" className='h-[90vh] border-l-4 border-black'/>
+    <div className="h-[95vh] w-full overflow-hidden">
+      <iframe 
+        src={fileUrl + "#toolbar=0"} 
+        className="h-full w-full border-l-4 border-black"
+      />
     </div>
-  )
+  );
 }
 
-export default PDFViewer
+export default PDFViewer;
