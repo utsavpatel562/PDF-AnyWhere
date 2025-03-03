@@ -2,6 +2,7 @@ import Placeholder from '@tiptap/extension-placeholder'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import React from 'react'
+import EditorExentsion from './EditorExentsion'
 
 function TextEditor() {
     const editor = useEditor({
@@ -17,6 +18,7 @@ function TextEditor() {
       })
   return (
     <div>
+        <EditorExentsion/>
         <div>
             <EditorContent editor={editor} />
         </div>
