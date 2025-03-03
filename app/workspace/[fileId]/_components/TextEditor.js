@@ -18,7 +18,7 @@ function TextEditor() {
       })
   return (
     <div>
-        <EditorExentsion/>
+        <EditorExentsion editor={editor} />
         <div>
             <EditorContent editor={editor} />
         </div>

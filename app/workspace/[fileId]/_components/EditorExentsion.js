@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function EditorExentsion({editor}) {
+function EditorExentsion({ editor }) {
+  if (!editor) return null; // Return null if editor is not available
+
   return (
     <div>
-        <div>
-        <div className="control-group">
+      <div className="control-group">
         <div className="button-group">
           <button
             onClick={() => editor.chain().focus().toggleBold().run()}
@@ -12,11 +13,10 @@ function EditorExentsion({editor}) {
           >
             Toggle bold
           </button>
-          </div>
         </div>
-        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default EditorExentsion
+export default EditorExentsion;
