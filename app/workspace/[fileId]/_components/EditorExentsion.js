@@ -1,4 +1,4 @@
-import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Bold, Highlighter, Italic, List, Underline } from 'lucide-react';
+import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Bold, Heading1, Heading2, Highlighter, Italic, List, Underline } from 'lucide-react';
 import React from 'react';
 
 function EditorExentsion({ editor }) {
@@ -8,6 +8,18 @@ function EditorExentsion({ editor }) {
     <div className='p-2 rounded-md mb-3 bg-slate-900'>
       <div className="control-group">
         <div className="button-group flex gap-3 justify-center">
+        <button
+            onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+            className={editor.isActive({ level: 1 }) ? 'text-slate-200 bg-slate-700 p-2 rounded-sm' : 'hover:bg-slate-800 hover:text-slate-200 text-slate-200 hover:rounded-sm p-2'}
+          >
+            <Heading1/>
+          </button>
+          <button
+            onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+            className={editor.isActive({ level: 2 }) ? 'text-slate-200 bg-slate-700 p-2 rounded-sm' : 'hover:bg-slate-800 hover:text-slate-200 text-slate-200 hover:rounded-sm p-2'}
+          >
+            <Heading2/>
+          </button>
           <button
             onClick={() => editor.chain().focus().toggleBold().run()}
             className={editor.isActive('bold') ? 'text-slate-200 bg-slate-700 p-2 rounded-sm' : 'hover:bg-slate-800 hover:text-slate-200 text-slate-200 hover:rounded-sm p-2'}
