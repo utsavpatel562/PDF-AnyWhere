@@ -4,7 +4,12 @@ import React from 'react';
 function EditorExentsion({ editor }) {
 
   const onAiClick = () => {
-    console.log("AI Button Click")
+    const selectedText = editor.state.doc.textBetween(
+      editor.state.selection.from,
+      editor.state.selection.to,
+      ''
+    )
+    console.log("SelectedText", selectedText)
   }
 
   if (!editor) return null; // Return null if editor is not available
@@ -81,9 +86,9 @@ function EditorExentsion({ editor }) {
           </button>
           <button
             onClick={() => onAiClick()}
-            className={'text-slate-200'}
+            className={'flex items-center gap-2 text-slate-200 bg-blue-600 md:pr-5 md:pl-5 rounded-sm'}
           >
-            <Sparkles/>
+            <Sparkles className='w-5'/> Ask AI
           </button>
         </div>
       </div>
