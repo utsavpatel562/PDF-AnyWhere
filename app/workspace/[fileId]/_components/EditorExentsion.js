@@ -1,15 +1,27 @@
+"use client";
+import { useAction } from 'convex/react';
 import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Bold, Heading1, Heading2, Highlighter, Italic, List, Sparkles, Underline } from 'lucide-react';
 import React from 'react';
+import { api } from '../../../../convex/_generated/api';
+import { useParams } from 'next/navigation';
 
 function EditorExentsion({ editor }) {
+  const {fileId}=useParams();
+  const SearchAI = useAction(api.myAction.search)
 
-  const onAiClick = () => {
+  const onAiClick = async() => {
     const selectedText = editor.state.doc.textBetween(
       editor.state.selection.from,
       editor.state.selection.to,
       ''
     )
-    console.log("SelectedText", selectedText)
+    console.log("SelectedText", selectedText);
+
+    const result = await SearchAI({
+      query: selectedText,
+      fileId: fileId,
+    })
+    console.log("Unformatted Ans:", result);
   }
 
   if (!editor) return null; // Return null if editor is not available

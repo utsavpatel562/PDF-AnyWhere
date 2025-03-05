@@ -51,9 +51,27 @@ export const search = action({
     fileId: v.string(),
   },
   handler: async (ctx, args) => {
-    const vectorStore = new ConvexVectorStore(new OpenAIEmbeddings(), { ctx });
+    const vectorStore = new ConvexVectorStore(
+      new GoogleGenerativeAIEmbeddings({
+        apiKey: process.env.GOOGLE_API_KEY,
+        model: "text-embedding-004",
+        taskType: TaskType.RETRIEVAL_DOCUMENT,
+        title: "Document title",
+      }), { ctx });
 
-    const resultOne = await vectorStore.similaritySearch(args.query, 1);
-    console.log(resultOne);
+    // Perform similarity search
+    const searchResults = await vectorStore.similaritySearch(args.query, 1);
+    console.log("Raw search results:", searchResults);
+
+    // Debug metadata filtering
+    searchResults.forEach(result => {
+      console.log("Search result metadata:", result.metadata);
+    });
+
+    // Apply filtering only if needed
+    const resultOne = searchResults.filter(q => q.metadata.fileId === args.fileId);
+    console.log("Filtered results:", resultOne);
+
+    return resultOne;
   },
 });
