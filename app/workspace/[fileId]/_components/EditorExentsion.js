@@ -1,7 +1,12 @@
-import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Bold, Heading1, Heading2, Highlighter, Italic, List, Underline } from 'lucide-react';
+import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Bold, Heading1, Heading2, Highlighter, Italic, List, Sparkles, Underline } from 'lucide-react';
 import React from 'react';
 
 function EditorExentsion({ editor }) {
+
+  const onAiClick = () => {
+    console.log("AI Button Click")
+  }
+
   if (!editor) return null; // Return null if editor is not available
 
   return editor&&(
@@ -73,6 +78,12 @@ function EditorExentsion({ editor }) {
             className={editor.isActive({ textAlign: 'justify' }) ? 'text-slate-200 bg-slate-700 p-2 rounded-sm' : 'hover:bg-slate-800 hover:text-slate-200 text-slate-200 hover:rounded-sm p-2'}
           >
             <AlignJustify/>
+          </button>
+          <button
+            onClick={() => onAiClick()}
+            className={'text-slate-200'}
+          >
+            <Sparkles/>
           </button>
         </div>
       </div>
