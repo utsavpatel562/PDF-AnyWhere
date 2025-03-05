@@ -42,3 +42,18 @@ export const ingest = action({
     return "Completed"
   },
 });
+
+// Search from LangChain
+
+export const search = action({
+  args: {
+    query: v.string(),
+    fileId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const vectorStore = new ConvexVectorStore(new OpenAIEmbeddings(), { ctx });
+
+    const resultOne = await vectorStore.similaritySearch(args.query, 1);
+    console.log(resultOne);
+  },
+});
