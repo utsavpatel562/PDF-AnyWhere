@@ -98,7 +98,7 @@ function EditorExentsion({ editor }) {
           </button>
           <button
             onClick={() => onAiClick()}
-            className={'flex items-center gap-2 text-slate-200 bg-blue-600 md:pr-5 md:pl-5 rounded-sm'}
+            className={'flex items-center gap-2 text-slate-200 border border-zinc-400 md:pr-5 md:pl-5 rounded-sm'}
           >
             <Sparkles className='w-5'/> Ask AI
           </button>
